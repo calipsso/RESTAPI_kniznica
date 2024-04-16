@@ -26,5 +26,12 @@ def add_book():
     books.append(new_book)
     return jsonify(new_book), 201
 
+@app.route("/knihy/<int:id>", methods=['GET'])
+def srch_book(id):
+    for book in books:
+        if book["id"] == id:
+            return jsonify(book)
+    return jsonify({"kniha":"nenajdena"}), 404
+
 if __name__ == "__main__":
     app.run()
