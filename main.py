@@ -31,7 +31,7 @@ def srch_book(id):
     for book in books:
         if book["id"] == id:
             return jsonify(book)
-    return jsonify({"kniha":"nenajdena"})
+    return jsonify({"kniha":"nenajdena"}), 404
 
 if __name__ == "__main__":
     app.run()
